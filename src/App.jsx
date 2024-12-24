@@ -21,12 +21,20 @@ import MyJobPostings from './pages/MyJobPostPage.jsx';
 import ViewProfilePage from './pages/ViewProfilePage';
 import MyApplicationsPage from './pages/MyApplicationsPage';
 
-// Environment configuration
+// Add this console log to debug your API URL
+console.log('Current API URL:', import.meta.env.VITE_API_URL);
+
 const API_URL = import.meta.env.VITE_API_URL || 
-  (import.meta.env.DEV ? 'http://localhost:5001/api/auth' : 'https://your-production-url.com/api/auth');
+  (import.meta.env.DEV ? 'http://localhost:5001/api/auth' : 'http://3.15.26.182/api/auth');
+
+// Log the final URL being used
+console.log('Final API URL:', API_URL);
 
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
+
+console.log('Environment:', import.meta.env.MODE);
+console.log('API URL being used:', API_URL);
 
 const App = () => {
   // Add new jobs
