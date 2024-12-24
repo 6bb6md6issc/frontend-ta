@@ -21,7 +21,6 @@ import MyJobPostings from './pages/MyJobPostPage.jsx';
 import ViewProfilePage from './pages/ViewProfilePage';
 import MyApplicationsPage from './pages/MyApplicationsPage';
 
-// Add this console log to debug your API URL
 console.log('Current API URL:', import.meta.env.VITE_API_URL);
 
 const API_URL = import.meta.env.VITE_API_URL || 
