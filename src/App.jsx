@@ -20,9 +20,13 @@ import ResetPasswordPage from './pages/ResetPasswordPage';
 import MyJobPostings from './pages/MyJobPostPage.jsx';
 import ViewProfilePage from './pages/ViewProfilePage';
 import MyApplicationsPage from './pages/MyApplicationsPage';
-axios.defaults.baseURL = 'http://localhost:5001/api/auth';
-axios.defaults.withCredentials = true;
 
+// Environment configuration
+const API_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.DEV ? 'http://localhost:5001/api/auth' : 'https://your-production-url.com/api/auth');
+
+axios.defaults.baseURL = API_URL;
+axios.defaults.withCredentials = true;
 
 const App = () => {
   // Add new jobs
