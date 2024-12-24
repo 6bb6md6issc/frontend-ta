@@ -25,7 +25,7 @@ import MyApplicationsPage from './pages/MyApplicationsPage';
 console.log('Current API URL:', import.meta.env.VITE_API_URL);
 
 const API_URL = import.meta.env.VITE_API_URL || 
-  (import.meta.env.DEV ? 'http://localhost:5001/api/auth' : 'http://3.15.26.182/api/auth');
+  (import.meta.env.DEV ? 'http://localhost:5001/api/auth' : 'http://3.15.26.182:5001/api/auth');
 
 // Log the final URL being used
 console.log('Final API URL:', API_URL);
@@ -37,35 +37,6 @@ console.log('Environment:', import.meta.env.MODE);
 console.log('API URL being used:', API_URL);
 
 const App = () => {
-  // Add new jobs
-  const addJob = async (newJob) => {
-    const res = await fetch('/api/jobs', {
-      method: "POST",
-      headers: {
-        "Content-Type": 'application/json' 
-      },
-      body: JSON.stringify(newJob)
-    })
-    return;
-  };
-
-  // delete job
-  const deleteJob = async (id) => {
-    const res = await fetch(`/api/jobs/${id}`, {
-      method: "DELETE",
-    });
-    return;
-  };
-
-  const updateJob = async (job) => {
-    const res = await fetch(`/api/jobs/${job.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type' : 'application/json',
-      },
-      body: JSON.stringify(job),
-    })
-  };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
