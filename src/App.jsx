@@ -37,7 +37,6 @@ console.log('Environment:', import.meta.env.MODE);
 console.log('API URL being used:', API_URL);
 
 const App = () => {
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />} errorElement={<div>Error loading page</div>} >
@@ -45,14 +44,14 @@ const App = () => {
         <Route path='/jobs' element={<JobsPage />} />
         <Route 
           path='/jobs/:id' 
-          element={<JobPage deleteJob={deleteJob} />} 
+          element={<JobPage />} 
           loader={jobLoader}
           errorElement={<div>Error loading job</div>}
         />
-        <Route path= '/add-job' element={<AddJobPage addSubmitJob={addJob} />} /> 
+        <Route path='/add-job' element={<AddJobPage />} /> 
         <Route 
           path= '/jobs/edit-job/:id' 
-          element={<EditJobPage updateJobSubmit={updateJob}/>} 
+          element={<EditJobPage />} 
           loader={jobLoader}
           errorElement={<div>Error loading job</div>} 
         />
