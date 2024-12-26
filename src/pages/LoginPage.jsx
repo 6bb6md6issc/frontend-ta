@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
@@ -11,7 +9,7 @@ import { useContext } from 'react';
 const LoginPage = () => {
 
   const navigate = useNavigate();
-  const { setIsLoggedIn, login} = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const loginUser = async (e) => {
     e.preventDefault();

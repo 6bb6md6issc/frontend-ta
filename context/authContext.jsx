@@ -1,8 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';
 import axios from 'axios'; 
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 // Add this near the top of your file, after the imports
 axios.defaults.withCredentials = true;
 // Create context
@@ -49,6 +46,9 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post('/login', credentials);
       setIsLoggedIn(true);
       setUserRole(response.data.user.role);
+      setUserEmail(response.data.user.email);
+      console.log(response.data.user.email);
+      console.log(response.data.user.role);
       alert('Logged in successfully');
     } catch (error) {
       console.error('Login failed:', error);
