@@ -31,6 +31,8 @@ console.log('Final API URL:', API_URL);
 
 axios.defaults.baseURL = API_URL;
 axios.defaults.withCredentials = true;
+axios.defaults.headers.common['Accept'] = 'application/json';
+axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 console.log('Environment:', import.meta.env.MODE);
 console.log('API URL being used:', API_URL);

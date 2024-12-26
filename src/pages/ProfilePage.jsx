@@ -59,9 +59,13 @@ export default function ProfilePage() {
         const fetchUserProfile = async () => {
             try {
                 const response = await axios.get('/profile', {
-                    withCredentials: true
+                    withCredentials: true,
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    }
                 });
-                
+                console.log('Profile response:', response.data);
                 if (response.data.success) {
                     const { major, classStanding, gpa, coursework } = response.data.user;
                     setUserData({
@@ -73,6 +77,7 @@ export default function ProfilePage() {
                 }
             } catch (error) {
                 console.error('Error fetching profile:', error);
+                console.error('Error response:', error.response?.data);
             }
         };
 
