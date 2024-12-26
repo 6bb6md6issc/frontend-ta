@@ -23,6 +23,11 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
+      - name: Clean up existing containers
+        run: |
+          docker stop frontend-ta-container || true
+          docker rm frontend-ta-container || true
+          docker system prune -f
       - name: Pull image from docker hub
         run: docker pull kevinh66/ta-front-end:latest
       - name: Run Docker Container
